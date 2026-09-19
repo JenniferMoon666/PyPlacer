@@ -21,8 +21,12 @@ identical code path — **not** by quoting published figures.
 |---|---:|---:|---:|---:|---:|---:|
 | FPGA-example1 | 3,336 | 3,264 | 10,978 | **8,201 $\pm$ 53** | **25.3%** | 2,613 s |
 | FPGA-example2 | 542,239 | 541,783 | 2,891,948 | **2,723,751** | 5.8% | 3,427 s |
-| FPGA-example3 | 427,800 | 427,194 | 7,766,552 | **7,658,226** | 1.4% | *(pending)* |
+| FPGA-example3 | 427,800 | 427,194 | 7,766,552 | **7,657,977** | 1.4% | 4,532 s |
 | FPGA-example4 | 844,184 | 843,578 | 8,174,005 | **7,852,883** | 3.9% | *(pending)* |
+
+Runtimes are wall-clock for the refinement stage only (the GP+LG input is loaded
+from disk). They are well below the configured Stage B budget of 8,100 s, because
+the batched search converges and triggers early stopping.
 
 ### Why the baseline is re-measured
 
