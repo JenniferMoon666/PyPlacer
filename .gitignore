@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# 实验输出与中间结果
+output/
+results/
+runs/
+*.log
+*.aux
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+
+# 布局结果文件（体积大，且依赖 benchmark，不入库）
+*.pl
+*_placement.txt
+
+# 数据集与 benchmark（体积巨大，README 中给出获取方式）
+benchmarks/
+datasets/
+*.zip
+*.7z
+
+# 模型权重
+*.pth
+*.pt
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
