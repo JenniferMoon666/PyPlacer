@@ -19,14 +19,26 @@ identical code path — **not** by quoting published figures.
 
 | Benchmark | Instances | Movable | DREAMPlaceFPGA | PyPlacer | Improvement | Runtime |
 |---|---:|---:|---:|---:|---:|---:|
-| FPGA-example1 | 3,336 | 3,264 | 10,978 | **8,201 $\pm$ 53** | **25.3%** | 2,613 s |
+| FPGA-example1 | 3,336 | 3,264 | 10,978 | **8,136 $\pm$ 31** | **25.9%** | 2,613 s |
 | FPGA-example2 | 542,239 | 541,783 | 2,891,948 | **2,723,751** | 5.8% | 3,427 s |
 | FPGA-example3 | 427,800 | 427,194 | 7,766,552 | **7,657,977** | 1.4% | 4,532 s |
-| FPGA-example4 | 844,184 | 843,578 | 8,174,005 | **7,852,883** | 3.9% | *(pending)* |
+| FPGA-example4 | 844,184 | 843,578 | 8,174,005 | **7,852,122** | 3.9% | 6,890 s |
 
 Runtimes are wall-clock for the refinement stage only (the GP+LG input is loaded
 from disk). They are well below the configured Stage B budget of 8,100 s, because
 the batched search converges and triggers early stopping.
+
+### The final DP round consistently degrades the solution
+
+In **all five** random-seed runs, the third detailed-placement round made the
+placement *worse* than its input (by 6–99 HPWL). We therefore return the
+**best-so-far** placement rather than the last one (`_v3_run_best.py`). This costs
+nothing in runtime and:
+
+- improves the mean from 8,201 ± 53 (25.3%) to **8,136 ± 31 (25.9%)**
+- halves the seed-to-seed spread (±0.49 → ±0.28 percentage points)
+
+The same pattern is likely present in other multi-round refinement flows.
 
 ### Why the baseline is re-measured
 
