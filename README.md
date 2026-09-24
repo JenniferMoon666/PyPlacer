@@ -5,8 +5,9 @@ Post-placement refinement framework built on top of
 It takes DREAMPlaceFPGA's legalized output as the initial solution and improves
 weighted HPWL by an adaptive, scale-dependent strategy.
 
-**Result: 25.3% HPWL reduction on ISPD 2016 FPGA-example1 over the DREAMPlaceFPGA
-baseline** (mean over five random seeds), with all outputs verified fully legal.
+**Result: 25.9% HPWL reduction on ISPD 2016 FPGA-example1 over the DREAMPlaceFPGA
+baseline** (mean over five random seeds, best-so-far selection), with all outputs
+verified fully legal.
 
 ---
 
